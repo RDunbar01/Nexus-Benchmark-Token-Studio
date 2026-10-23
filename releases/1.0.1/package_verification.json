@@ -1,0 +1,17 @@
+{
+  "draft": false,
+  "licensingHold": false,
+  "publishable": true,
+  "product": "benchmark",
+  "passed": true,
+  "outerCRC": true,
+  "allComponentsBelow20MB": true,
+  "allDataPartsAtMost10MB": true,
+  "allBundledHTMLAndReadmeBelow20MB": true,
+  "payloadSHA256": "4dfb604b4537d38f17f77629a554c59e590904793411f1102af91f8e9e1288fd",
+  "inventoryFilesVerified": 628,
+  "actualPackagedBootstrapConcurrentExtraction": true,
+  "idempotentExtraction": true,
+  "corruptedPartRejectedDespiteCache": true,
+  "nativeWindowsRadeonTested": false
+}

@@ -1,0 +1,34 @@
+{
+  "product": "benchmark",
+  "version": "1.0.1",
+  "file": "Nexus_Benchmark_Token_Studio_v1.0.1.zip",
+  "sha256": "95ebf3b3988c0fdc9325086355ae54e4bf27cb0bf354f8d558642621965c98b2",
+  "passed": true,
+  "exactCurrentTemplateAndReadinessSource": true,
+  "cleanGateEmbedded": true,
+  "inventoryFiles": 628,
+  "actualIsolatedUnpackAndIdempotence": true,
+  "allDistributionComponentsBelow20MB": true,
+  "nativeWindowsRadeonTested": false,
+  "draft": false,
+  "licensingHold": false,
+  "approvedForDistributionWithinReviewedScope": true,
+  "outerSizes": {
+    "files": 10,
+    "largestUncompressedFile": 10000000,
+    "largestDataPart": 10000000
+  },
+  "innerSizes": {
+    "files": 629,
+    "largestUncompressedFile": 9000000,
+    "largestDataPart": 9000000
+  },
+  "corpusReconstruction": {
+    "parts": 3,
+    "reconstructedBytes": 13643462,
+    "originalArchiveSHA256": "af4348f095fb1b3e08a37f91bc36696be5044bea39a979b1f91f7f340cba721b"
+  },
+  "finalLicenseAndSixPageNoticesMatchSource": true,
+  "independentActualNativeTitleDOMRegression": true,
+  "supersedesArchiveSHA256": "5bb5814cf7fa3be84942eff111ed221637a778705e8589ec5c6aa0fdc353a442"
+}

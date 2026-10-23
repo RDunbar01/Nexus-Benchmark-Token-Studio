@@ -1,0 +1,53 @@
+# Nexus Benchmark Token Studio — ホーム
+
+## [ブラウザーで試す](<https://rdunbar01.github.io/Nexus-Benchmark-Token-Studio/Nexus_Benchmark_Token_Studio_v1_Browser.html>) · ブラウザー版
+
+Pages のデプロイが利用可能になったら、この HTTPS 入口からバージョン 1 のブラウザー試用版を開いてください。ページの提供と初期起動は、WebGPU・Windows・Radeon の処理全体の検証とは別です。GitHub の HTML ソース表示ではアプリは実行されません。
+
+ネイティブ **1.0.1** パッケージは main で公開済みです。この起動時の修正により、ネイティブのタイトル更新が UI タイマーを占有しなくなりました。ブラウザー試用版は **バージョン 1** です。 他の製品やリリースの部品を混在させないでください。パッケージのレビューと展開テストには合格しています。実機 Windows・WebView2・Radeon およびフルモデルの検証は未完了です。
+
+リンクを開いて **Check WebGPU adapter** を選択してください。最初の10秒で目指すのは UI とブラウザー機能の確認であり、モデルのダウンロード完了や学習・推論の保証ではありません。読み込み時間は回線と端末に依存します。
+
+**HTML 試用版に Python は不要です。ネイティブ PyTorch バックエンドには完全なダウンロードが必要です。** 同じリリースの Python インストーラーとすべての分割データを一緒に保持してください。HTML 内で Python や PyTorch は実行されません。WebGPU 対応、ローカル入力、モデル互換性の確認は別途必要です。
+
+## Python とネイティブ実行環境の要件
+
+- **推奨インタープリターは標準の64ビット CPython 3.12 です。** インストーラーの案内範囲は **Python 3.11–3.14** ですが、起動用スクリプト自体はこの範囲を強制しません。他のバージョンで開けても、ネイティブバックエンドの互換性を証明したことにはなりません。
+- **新しい AMD 実行環境のインストールには、Windows 11 25H2 上の標準64ビット CPython 3.11–3.14 が必要です。free-threaded 版は対象外です。** 既存環境はこのインストール条件の確認前にテストされ、実行テストに成功した場合のみ再利用されます。Python とインストール済み PyTorch wheel の対応が必要です。それ以上の Python バージョン互換性は認定していません。
+- 同梱のネイティブテストは **PyTorch 2.14.0+rocm10.1.0**、HIP、設定された RX 7900 XT/XTX を要求し、FP32 の順伝播・逆伝播の値が有限であることを確認します。このパッケージは Python、AMD ドライバー、コンパイラーの前提条件をインストール・変更しません。[AMD 公式互換性表](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html)を確認してください。
+
+これらはインストーラーと実行環境の条件であり、実機 Windows・WebView2・Radeon やフルモデルの検証完了を意味しません。テスト成功はすべての精度・コンパイル方式・処理負荷を保証しません。
+
+**1.0.1 · 日本語**
+
+公開リリースのドキュメントです。以下の検証範囲と制限を確認してください。
+
+[English](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ko)
+
+## 目的
+
+一時的なモデルの学習と、対応するネイティブ処理の性能を測定します。ブラウザー版は使い捨てのモデルと合成トークンを使うベンチマークであり、汎用の推論ローダーや読み込んだモデルの評価器ではありません。
+
+## エディションの選択
+
+### ブラウザー版
+
+[HTML](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/Nexus_Benchmark_Token_Studio_v1_Browser.html) · [README](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/README.md)
+
+HTTPS または対応する安全な localhost オリジンで、WebGPU 対応ブラウザーを使用してください。単一 HTML に独自の JavaScript/WGSL エンジンが含まれます。対応するローカルファイルを読み込んでください。Python、PyTorch、ネイティブサービス、オンラインデータセットの取得、ネイティブ GPU テレメトリーは利用できず、実行時のネットワーク要求は遮断されます。GitHub のソース表示画面ではアプリは実行されません。
+
+### インストール版
+
+[1.0.1 パッケージ](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/tree/main/releases/1.0.1)のすべてのファイルを、配布時の構成を保って一緒にダウンロードしてください。番号付きのすべての `.nxd` データパーツを [Start_Nexus.py](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/releases/1.0.1/Start_Nexus.py) と同じ場所に置き、対応する Python で `python Start_Nexus.py` を実行します。同意前に[対応するガイド](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/releases/1.0.1/README.md)とインストール内容の概要を確認してください。各 `.nxd` パーツは **10,000,000 バイト以下**、インストール前の配布ファイルは1個あたり **20,000,000 バイト未満**です。アーカイブ全体、復元後のアプリ、インストール済みファイル、ダウンロードするモデルはこれを超える場合があります。異なるリリースを混在させないでください。ネイティブ PyTorch の設定・テストはインストール版の機能であり、HTML 単体の試用版の機能ではありません。
+
+## 測定結果と制限
+
+CPU 回帰テストや静的解析・DOM テストは、実機の Windows/Radeon/WebGPU 検証ではありません。モデル、コーパス、コンテキスト、バッチ、精度、バックエンドが等しい条件で比較してください。学習・回復、プロンプト処理、トークン生成の速度は別々の指標です。すべての環境での互換性や最高速度を保証しません。
+
+## クレジットとライセンス
+
+Rich Dunbar / Nexus Emerging Technology による、AI 支援コーディングを利用した開発です。既存のライセンス、および第三者の研究・コード・モデル・データセットの利用条件が引き続き適用されます。このページは新たな利用許諾を付与しません。
+
+## 現行リリースのライセンス
+
+この Nexus リリースは Apache License 2.0 では提供されません。Nexus が権利を持つソフトウェアは、個人的かつ非商用の目的に限り使用できます。商用利用を含むその他の利用、改変または再配布には、権利者の明示的な書面による同意が必要です。第三者のコード、モデル、データセットおよび別途ライセンスされた構成要素には、それぞれのライセンスと表示が引き続き適用されます。既に付与された権利および法律上制限できない権利は変更されません。
