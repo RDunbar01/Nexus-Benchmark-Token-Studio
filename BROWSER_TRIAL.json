@@ -1,0 +1,28 @@
+{
+  "product": "Nexus Benchmark Token Studio",
+  "browserVersion": "1",
+  "revision": "2026-10-23-startup-visibility-and-evaluation-permission",
+  "file": "Nexus_Benchmark_Token_Studio_v1_Browser.html",
+  "bytes": 9131118,
+  "sha256": "8b35c6836965972cec824b182f059da48ddd7e68c52dd727d04c79676960c17d",
+  "supersedesSHA256": "e38f5b0e914af56ec02dbe110831d272a517556eed19a911e6295f255b04f89a",
+  "nativeVersion": "1.0.1",
+  "nativeComponentsChanged": false,
+  "changeScope": [
+    "Four inherited product-title assignments use the browser edition title.",
+    "Benchmark cross-mode CSS keeps the trial status, icon, license notice and adapter check visible.",
+    "Current notice includes the release-scoped internal commercial testing/evaluation permission and an absolute link to the matching supplement."
+  ],
+  "validation": {
+    "fullDOMRegression": true,
+    "mockedAdapterCheck": true,
+    "settledProductTitle": true,
+    "trialWrapperComputedDisplay": "block",
+    "timerProgress": true,
+    "licenseAndIconPresent": true,
+    "physicalGPUWorkloadTested": false,
+    "localRealBrowser": "Local real-browser preview not completed; deployed-page verification required.",
+    "evaluationPermissionLink": "https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/COMMERCIAL_EVALUATION_PERMISSION.md"
+  },
+  "limits": "Source/DOM checks do not establish physical Windows, WebView2, Radeon or WebGPU workload qualification."
+}
