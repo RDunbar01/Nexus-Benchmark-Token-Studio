@@ -1,0 +1,66 @@
+{
+  "draft": false,
+  "licensingHold": false,
+  "publishable": true,
+  "product": "benchmark",
+  "version": "1.0.1",
+  "file": "Nexus_Benchmark_Token_Studio_v1.0.1.zip",
+  "sha256": "95ebf3b3988c0fdc9325086355ae54e4bf27cb0bf354f8d558642621965c98b2",
+  "components": [
+    {
+      "name": "LICENSE",
+      "bytes": 1979,
+      "sha256": "38e7a3bf628243ca101460fec0b17b77e201a05ffd30d95d4696697cfeed576d"
+    },
+    {
+      "name": "NEXUS_LICENSE_SCOPE.md",
+      "bytes": 1615,
+      "sha256": "7a12f890aea5c22c88ae66d986b01e789a20ff7aad9cf6580958c007ff1b3eae"
+    },
+    {
+      "name": "Nexus_payload.001.nxd",
+      "bytes": 10000000,
+      "sha256": "6e3041da2edea555ac5b3238114f67f7e81f1a7cc31c8cbc4a55bc6d2e2433d9"
+    },
+    {
+      "name": "Nexus_payload.002.nxd",
+      "bytes": 10000000,
+      "sha256": "bb6f05fd354c71039cf230dc68ef4d2ae094020c71a4eb63da0cb86a892ceb99"
+    },
+    {
+      "name": "Nexus_payload.003.nxd",
+      "bytes": 10000000,
+      "sha256": "5db0cb2d7d9b67c007d763a0dc5e0045995738605a78525e4a7b910cff54900b"
+    },
+    {
+      "name": "Nexus_payload.004.nxd",
+      "bytes": 10000000,
+      "sha256": "44a06af19b631b7cd957e87e105bfaaffe3c3f6b510db065fd7961bb09fc9f17"
+    },
+    {
+      "name": "Nexus_payload.005.nxd",
+      "bytes": 2548633,
+      "sha256": "5a9525f7814527630471a70c6407a4d0bd4698d967fb8e6494de80164e159c70"
+    },
+    {
+      "name": "README.docx",
+      "bytes": 47836,
+      "sha256": "9d4f36a6ce1da09aa1e93cc6eb32baf06a7d01a9d193be0f652bebcdf3238e06"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3874,
+      "sha256": "7a92223975c20fccda4ec38922849906acfd02dd7e9981787a48c3fb3cf9c265"
+    },
+    {
+      "name": "Start_Nexus.py",
+      "bytes": 19706,
+      "sha256": "d8324d09912099dc55a5f6e24b0f81bad991af0aca780bccd44565792de99ea5"
+    }
+  ],
+  "componentLimitExclusiveBytes": 20000000,
+  "dataPartMaximumBytes": 10000000,
+  "sizeScope": "Every outer and reconstructed bundled file is below 20,000,000 bytes; all distributed .nxd data parts are at most 10,000,000 bytes. External dependency downloads are not bundled components.",
+  "runtime": "Benchmark runtime probes an existing compatible AMD PyTorch runtime first; approved product-owned dependency setup is available when required.",
+  "validation": "CPU/mocked checks only; Windows 11, WebView2 and Radeon hardware validation pending."
+}
