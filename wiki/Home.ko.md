@@ -1,14 +1,33 @@
-# Nexus Benchmark Token Studio — 홈
+# Nexus Benchmark Token Studio
 
-## [브라우저에서 체험하기](<https://rdunbar01.github.io/Nexus-Benchmark-Token-Studio/Nexus_Benchmark_Token_Studio_v1_Browser.html>) · 브라우저 에디션
+**Version 1.0.1**
 
-Pages 배포를 사용할 수 있게 되면 이 HTTPS 진입 주소에서 버전 1 브라우저 체험판을 여세요. 페이지 제공 및 초기 시작은 전체 WebGPU, Windows 또는 Radeon 작업 검증과 별개입니다. GitHub HTML 소스 보기에서는 앱이 실행되지 않습니다.
+훈련 작업의 시간, 유효 토큰 수 및 평가 기록을 명시적으로 측정합니다.
 
-네이티브 **1.0.1** 패키지는 main에 게시되었습니다. 이번 시작 수정으로 네이티브 제목 업데이트가 UI 타이머를 독점하지 않도록 했습니다. 브라우저 체험판은 **버전 1**입니다. 다른 제품 또는 릴리스의 구성 요소를 섞지 마세요. 패키지 검토와 압축 해제 검사는 통과했으나 실제 Windows, WebView2, Radeon 및 전체 모델 검증은 아직 완료되지 않았습니다.
+**[브라우저에서 체험하기](https://rdunbar01.github.io/Nexus-Benchmark-Token-Studio/Nexus_Benchmark_Token_Studio_v1_Browser.html)** · [데스크톱 구성 요소 다운로드](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/tree/main/releases/1.0.1) · [README](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/README.md)
 
-링크를 열고 **Check WebGPU adapter**를 선택하세요. 처음 10초의 목표는 UI와 브라우저 기능을 확인하는 것이며, 모델 다운로드 완료나 학습·추론을 보장하는 것이 아닙니다. 로딩 시간은 연결 상태와 기기에 따라 달라집니다.
+체험 페이지에서 인터페이스를 살펴보고 **Check WebGPU adapter**를 선택하세요. Python은 필요하지 않습니다. 브라우저 벤치마크는 임시 스크래치 모델과 합성 토큰을 사용하므로 이 테스트에는 모델이나 말뭉치를 다운로드할 필요가 없습니다.
 
-**HTML 체험판에는 Python이 필요하지 않습니다. 네이티브 PyTorch 백엔드에는 전체 다운로드가 필요합니다.** 같은 릴리스의 Python 설치 프로그램과 모든 데이터 조각을 함께 보관하세요. HTML 안에서 Python이나 PyTorch는 실행되지 않습니다. WebGPU 지원, 로컬 입력 파일 및 모델 호환성 확인은 별도로 필요합니다.
+네이티브 패키지 1.0.1, 브라우저 에디션 1.
+
+## 주요 기능
+
+- 합성 토큰과 임시 스크래치 모델을 사용하는 브라우저 벤치마크.
+- 지원되는 네이티브 작업을 위한 설치형 PyTorch 테스트.
+- 워밍업, 훈련, 평가 및 생성 측정값의 구분.
+- 패딩을 유효 토큰으로 세지 않고 설정을 비교할 수 있는 내보내기 기록.
+
+## 기술적 기여
+
+소규모 모델 개발을 위한 재현 가능한 측정 흐름입니다. 합성 속도 테스트를 불러온 모델 및 말뭉치 평가와 구분하여, 초당 토큰 수가 어떤 작업을 측정한 값인지 명확히 합니다.
+
+## 단일 HTML 파일을 사용하는 이유
+
+브라우저 에디션은 인터페이스, JavaScript, CSS와 WGSL 커널을 하나의 HTML 파일에 담습니다. 빌드 과정이나 실행 시 CDN 없이 온라인 체험을 열고, 링크를 공유하고, 내용을 살펴보기 위한 구성입니다. 이 파일에는 브라우저 엔진이 들어 있으며 모델 가중치나 네이티브 PyTorch 백엔드는 포함되지 않습니다.
+
+HTTPS에서 WebGPU 호환 브라우저를 사용하세요. 이 합성 벤치마크는 GGUF 로더나 말뭉치 평가가 아닙니다. 실행 중 네트워크 요청, 네이티브 하드웨어 모니터링, 로컬 서버 연결은 비활성화되어 있습니다. 불러온 모델과 말뭉치를 사용하는 작업에는 전체 설치형 애플리케이션과 지원되는 네이티브 PyTorch 경로가 필요합니다.
+
+[English](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ko)
 
 ## Python 및 네이티브 실행 환경 요구 사항
 
@@ -18,11 +37,6 @@ Pages 배포를 사용할 수 있게 되면 이 HTTPS 진입 주소에서 버전
 
 이는 설치 프로그램과 런타임의 조건이며 실제 Windows, WebView2, Radeon 또는 전체 모델 검증이 완료되었다는 뜻이 아닙니다. 검사 통과가 모든 정밀도, 컴파일 모드 또는 작업을 검증하지는 않습니다.
 
-**1.0.1 · 한국어**
-
-게시된 릴리스 문서입니다. 아래의 근거와 한계를 확인하세요.
-
-[English](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ko)
 
 ## 목적
 
@@ -32,9 +46,7 @@ Pages 배포를 사용할 수 있게 되면 이 HTTPS 진입 주소에서 버전
 
 ### 브라우저 에디션
 
-[HTML](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/Nexus_Benchmark_Token_Studio_v1_Browser.html) · [README](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/README.md)
-
-HTTPS 또는 지원되는 보안 localhost 출처에서 WebGPU 호환 브라우저를 사용하세요. 단일 HTML 파일에 자체 JavaScript/WGSL 엔진이 포함됩니다. 지원되는 로컬 파일을 가져오세요. Python, PyTorch, 네이티브 서비스, 온라인 데이터셋 다운로드, 네이티브 GPU 측정 정보는 제공되지 않으며 실행 중 네트워크 요청은 차단됩니다. GitHub의 소스 보기 화면에서는 앱이 실행되지 않습니다.
+HTTPS에서 WebGPU 호환 브라우저를 사용하세요. 이 합성 벤치마크는 GGUF 로더나 말뭉치 평가가 아닙니다. 실행 중 네트워크 요청, 네이티브 하드웨어 모니터링, 로컬 서버 연결은 비활성화되어 있습니다. 불러온 모델과 말뭉치를 사용하는 작업에는 전체 설치형 애플리케이션과 지원되는 네이티브 PyTorch 경로가 필요합니다.
 
 ### 설치형 에디션
 
@@ -44,10 +56,6 @@ HTTPS 또는 지원되는 보안 localhost 출처에서 WebGPU 호환 브라우�
 
 CPU 회귀 테스트와 정적 분석/DOM 검사는 실제 Windows/Radeon/WebGPU 하드웨어 검증이 아닙니다. 모델, 코퍼스, 문맥 길이, 배치, 정밀도, 백엔드가 같은 조건에서만 비교하세요. 학습/회복, 프롬프트 처리, 토큰 생성 처리량은 서로 다른 지표입니다. 모든 환경의 호환성이나 최대 속도를 보장하지 않습니다.
 
-## 제작 및 라이선스
+## 이용 조건 및 제작
 
-Rich Dunbar / Nexus Emerging Technology가 AI 지원 코딩으로 개발했습니다. 기존 라이선스와 제3자 연구, 코드, 모델, 데이터셋의 이용 조건이 계속 적용됩니다. 이 페이지는 추가적인 이용 권한을 부여하지 않습니다.
-
-## 현재 릴리스 라이선스
-
-이 Nexus 릴리스는 Apache License 2.0으로 제공되지 않습니다. Nexus가 권리를 보유한 소프트웨어는 개인적이고 비상업적인 목적으로만 사용할 수 있습니다. 상업적 이용을 포함한 그 밖의 이용, 수정 또는 재배포에는 권리자의 명시적인 서면 동의가 필요합니다. 제3자 코드, 모델, 데이터 세트 및 별도로 라이선스된 구성 요소에는 각자의 라이선스와 고지가 계속 적용됩니다. 이미 부여된 권리와 법적으로 제한할 수 없는 권리는 변경되지 않습니다.
+Rich Dunbar / Nexus Emerging Technology. Nexus가 권리를 보유한 자료는 개인적 이용과 내부 상업적 테스트 및 평가에 사용할 수 있습니다. 배포, 수정, 운영 환경 배포 및 그 밖의 상업적 이용에는 명시적인 서면 동의가 필요합니다. 제3자 라이선스와 이미 부여된 권리는 변경되지 않습니다. [라이선스](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/LICENSE) · [평가 추가 허가(영문)](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/COMMERCIAL_EVALUATION_PERMISSION.md).
