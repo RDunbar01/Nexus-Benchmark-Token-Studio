@@ -1,14 +1,33 @@
-# Nexus Benchmark Token Studio — Home
+# Nexus Benchmark Token Studio
 
-## [Try in your browser](<https://rdunbar01.github.io/Nexus-Benchmark-Token-Studio/Nexus_Benchmark_Token_Studio_v1_Browser.html>) · browser edition
+**Version 1.0.1**
 
-Use this HTTPS entry for the version 1 browser trial once its Pages deployment is available. Browser availability and initial startup are separate from full WebGPU, Windows or Radeon workload qualification. GitHub’s HTML source viewer does not execute the application.
+Measure training workloads with explicit timing, valid-token counts and evaluation records.
 
-The native **1.0.1** package is published on main. This startup hotfix prevents native title updates from starving interface timers. The browser trial remains **version 1**. Do not mix components from other products or releases. Package review and extraction checks passed, but physical Windows, WebView2, Radeon and full-model qualification remain outstanding.
+**[Try in your browser](https://rdunbar01.github.io/Nexus-Benchmark-Token-Studio/Nexus_Benchmark_Token_Studio_v1_Browser.html)** · [Download the desktop components](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/tree/main/releases/1.0.1) · [README](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/README.md)
 
-Open the link and choose **Check WebGPU adapter**. The first-10-seconds goal is to inspect the UI and capability, not to download a model or guarantee training/inference. Loading depends on the connection and device.
+Open the trial to inspect the interface and choose **Check WebGPU adapter**. No Python installation is needed. The browser benchmark creates a disposable scratch model and uses synthetic tokens; no model or corpus download is needed for that fixture.
 
-**No Python is required for the HTML trial. A full download is required for the native PyTorch backend.** Keep the Python installer and every matching data part together. Python and PyTorch do not run in the HTML. WebGPU support, local inputs and model compatibility checks still apply.
+Native package 1.0.1; browser edition 1.
+
+## What it does
+
+- A disposable browser scratch-model benchmark using synthetic tokens.
+- Installed PyTorch tests for supported native workloads.
+- Separate reporting of warm-up, training, evaluation and generation measurements.
+- Exportable evidence for comparing settings without counting padding as useful tokens.
+
+## Engineering contribution
+
+A reproducible measurement workflow for small-model development. It distinguishes synthetic speed tests from loaded-model and corpus evaluation so that a tokens-per-second figure has a defined workload behind it.
+
+## Why a single HTML file?
+
+The browser edition packages its interface, JavaScript, CSS and WGSL kernels in one HTML file. This makes online trials easy to open, link to and inspect without a build step or runtime CDN. The file contains the browser engine, not model weights or the native PyTorch backend.
+
+Use a compatible WebGPU browser over HTTPS. This browser fixture is a synthetic benchmark, not a GGUF loader or a corpus evaluation. Runtime network requests, native hardware monitoring and local-server bridges are disabled. Loaded-model and corpus workloads require the full installed application and its supported native PyTorch path.
+
+[English](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ko)
 
 ## Python and native runtime requirements
 
@@ -18,11 +37,6 @@ Open the link and choose **Check WebGPU adapter**. The first-10-seconds goal is 
 
 These are installer/runtime conditions, not completed physical Windows, WebView2, Radeon or full-model qualification. A successful probe does not qualify every precision, compilation mode or workload.
 
-**1.0.1 · English**
-
-Published release documentation. See the evidence and limits below.
-
-[English](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ko)
 
 ## Purpose
 
@@ -32,9 +46,7 @@ Benchmark scratch-model training and supported native workloads. The browser edi
 
 ### Browser edition
 
-[HTML](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/Nexus_Benchmark_Token_Studio_v1_Browser.html) · [README](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/README.md)
-
-Use a compatible WebGPU browser on HTTPS or a supported secure localhost origin. The single HTML file contains the custom JavaScript/WGSL engine. Import supported local files. No Python, PyTorch, native service, online dataset download or native GPU telemetry is available; runtime network requests are blocked. GitHub’s source viewer is not an executable trial.
+Use a compatible WebGPU browser over HTTPS. This browser fixture is a synthetic benchmark, not a GGUF loader or a corpus evaluation. Runtime network requests, native hardware monitoring and local-server bridges are disabled. Loaded-model and corpus workloads require the full installed application and its supported native PyTorch path.
 
 ### Installed edition
 
@@ -44,10 +56,6 @@ Download every file in the [1.0.1 package](https://github.com/RDunbar01/Nexus-Be
 
 CPU regression and static/DOM checks are not physical Windows/Radeon/WebGPU validation. Compare only equivalent model, corpus, context, batch, precision and backend conditions. Training/recovery, prompt processing and token generation rates are different measurements. No universal compatibility or maximum speed is guaranteed.
 
-## Credits and licensing
+## Use and attribution
 
-Rich Dunbar / Nexus Emerging Technology, developed with AI-assisted coding. Existing licenses and third-party research, code, model and dataset terms remain in force. This page grants no additional license.
-
-## Current release licensing
-
-This Nexus release is not offered under Apache License 2.0. Nexus-owned software may be used only for personal, non-commercial purposes. Any other use, including commercial use, modification or redistribution, requires express written consent from the rights holder. Third-party code, models, datasets and separately licensed components retain their own licenses and notices. Previously granted rights and rights that cannot lawfully be restricted remain unchanged.
+Rich Dunbar / Nexus Emerging Technology. Personal use and internal commercial testing and evaluation are permitted for Nexus-owned material. Distribution, modification, production deployment and other commercial use require express written consent. Third-party licenses and previously granted rights remain unchanged. [license](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/LICENSE) · [evaluation permission (English)](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/COMMERCIAL_EVALUATION_PERMISSION.md).

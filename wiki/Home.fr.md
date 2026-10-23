@@ -1,14 +1,33 @@
-# Nexus Benchmark Token Studio — Accueil
+# Nexus Benchmark Token Studio
 
-## [Essayer dans le navigateur](<https://rdunbar01.github.io/Nexus-Benchmark-Token-Studio/Nexus_Benchmark_Token_Studio_v1_Browser.html>) · édition navigateur
+**Version 1.0.1**
 
-Utilisez cette adresse HTTPS pour l’essai navigateur version 1 une fois son déploiement Pages disponible. La disponibilité et le démarrage initial ne constituent pas une qualification complète des charges WebGPU, Windows ou Radeon. L’affichage du code HTML sur GitHub n’exécute pas l’application.
+Mesurer les charges d’entraînement avec des durées explicites, le nombre de tokens valides et des relevés d’évaluation.
 
-Le paquet natif **1.0.1** est publié sur main. Ce correctif de démarrage empêche les mises à jour du titre natif de monopoliser les minuteries de l’interface. L’essai navigateur reste en **version 1**. Ne mélangez pas les composants de produits ou de versions différents. La revue du paquet et les contrôles d’extraction ont réussi, mais la qualification Windows, WebView2, Radeon et des modèles complets sur matériel réel reste à réaliser.
+**[Essayer dans le navigateur](https://rdunbar01.github.io/Nexus-Benchmark-Token-Studio/Nexus_Benchmark_Token_Studio_v1_Browser.html)** · [Télécharger les composants de bureau](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/tree/main/releases/1.0.1) · [README](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/README.md)
 
-Ouvrez le lien et choisissez **Check WebGPU adapter**. L’objectif des dix premières secondes est d’examiner l’interface et les capacités du navigateur, pas de télécharger un modèle ni de garantir l’entraînement ou l’inférence. Le chargement dépend de la connexion et de l’appareil.
+Ouvrez la version d’essai pour examiner l’interface et choisissez **Check WebGPU adapter**. Python n’est pas nécessaire. Le benchmark crée un modèle temporaire et utilise des tokens synthétiques ; aucun modèle ni corpus n’est à télécharger pour ce test.
 
-**L’essai HTML ne nécessite pas Python. Le moteur PyTorch natif exige le téléchargement complet.** Gardez l’installateur Python et toutes les parties de données de la même version ensemble. Python et PyTorch ne s’exécutent pas dans le HTML. La prise en charge de WebGPU, les fichiers locaux et les contrôles de compatibilité du modèle restent nécessaires.
+Paquet natif 1.0.1 ; édition navigateur 1.
+
+## Fonctionnalités
+
+- Benchmark jetable dans le navigateur, avec un modèle créé pour le test et des tokens synthétiques.
+- Tests PyTorch installés pour les charges natives prises en charge.
+- Mesures distinctes pour la chauffe, l’entraînement, l’évaluation et la génération.
+- Résultats exportables pour comparer les réglages sans compter le remplissage comme des tokens utiles.
+
+## Contribution technique
+
+Un parcours de mesure reproductible pour le développement de petits modèles. Il distingue les tests de vitesse synthétiques de l’évaluation d’un modèle chargé avec un corpus, afin de rattacher chaque débit en tokens par seconde à une charge définie.
+
+## Pourquoi un seul fichier HTML ?
+
+L’édition navigateur réunit l’interface, JavaScript, CSS et les noyaux WGSL dans un seul fichier HTML. Ce choix facilite les essais en ligne, le partage du lien et l’inspection, sans compilation ni CDN à l’exécution. Le fichier contient le moteur navigateur, pas les poids des modèles ni le backend PyTorch natif.
+
+Utilisez un navigateur compatible WebGPU en HTTPS. Ce test synthétique ne charge pas de GGUF et n’évalue pas un corpus. Les requêtes réseau à l’exécution, la surveillance matérielle native et les passerelles vers un serveur local sont désactivées. Les charges utilisant un modèle chargé et un corpus nécessitent l’application installée complète et sa voie PyTorch native prise en charge.
+
+[English](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ko)
 
 ## Versions de Python et environnement natif
 
@@ -18,11 +37,6 @@ Ouvrez le lien et choisissez **Check WebGPU adapter**. L’objectif des dix prem
 
 Ces conditions ne constituent pas une validation sur matériel Windows, WebView2 ou Radeon réel, ni une qualification du modèle complet. Un test réussi ne valide pas toutes les précisions, compilations ou charges de travail.
 
-**1.0.1 · Français**
-
-Documentation de la version publiée. Consultez les mesures et limites ci-dessous.
-
-[English](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/wiki/Home.ko)
 
 ## Objectif
 
@@ -32,9 +46,7 @@ Mesurez l’entraînement de modèles temporaires et les charges natives prises 
 
 ### Édition navigateur
 
-[HTML](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/Nexus_Benchmark_Token_Studio_v1_Browser.html) · [README](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/README.md)
-
-Utilisez un navigateur compatible WebGPU en HTTPS ou sur une origine localhost sécurisée prise en charge. Le fichier HTML unique contient le moteur JavaScript/WGSL personnalisé. Importez des fichiers locaux compatibles. Python, PyTorch, les services natifs, le téléchargement de jeux de données en ligne et la télémétrie GPU native ne sont pas disponibles ; les requêtes réseau de l’application sont bloquées. L’affichage du code sur GitHub n’exécute pas l’application.
+Utilisez un navigateur compatible WebGPU en HTTPS. Ce test synthétique ne charge pas de GGUF et n’évalue pas un corpus. Les requêtes réseau à l’exécution, la surveillance matérielle native et les passerelles vers un serveur local sont désactivées. Les charges utilisant un modèle chargé et un corpus nécessitent l’application installée complète et sa voie PyTorch native prise en charge.
 
 ### Édition installée
 
@@ -44,10 +56,6 @@ Téléchargez ensemble tous les fichiers du [paquet 1.0.1](https://github.com/RD
 
 Les tests CPU et les contrôles statiques/DOM ne valident pas l’exécution sur du matériel Windows/Radeon/WebGPU réel. Comparez uniquement des conditions équivalentes : modèle, corpus, contexte, lot, précision et moteur. Les débits d’entraînement, de récupération, de traitement des invites et de génération sont des mesures différentes. Aucune compatibilité universelle ni vitesse maximale n’est garantie.
 
-## Crédits et licences
+## Utilisation et attribution
 
-Rich Dunbar / Nexus Emerging Technology, avec l’aide d’outils de codage par IA. Les licences existantes et les conditions applicables aux recherches, au code, aux modèles et aux données tiers restent en vigueur. Cette page n’accorde aucune licence supplémentaire.
-
-## Licence de la version actuelle
-
-Cette version de Nexus n’est pas proposée sous la licence Apache 2.0. Le logiciel appartenant à Nexus ne peut être utilisé qu’à des fins personnelles et non commerciales. Toute autre utilisation, y compris commerciale, ainsi que toute modification ou redistribution, nécessite le consentement écrit exprès du titulaire des droits. Les codes, modèles, jeux de données tiers et composants sous licence distincte conservent leurs propres licences et mentions. Les droits déjà accordés et les droits qui ne peuvent légalement être restreints restent inchangés.
+Rich Dunbar / Nexus Emerging Technology. L’usage personnel ainsi que les tests et évaluations commerciaux internes sont autorisés pour les éléments appartenant à Nexus. La distribution, la modification, le déploiement en production et les autres usages commerciaux nécessitent un consentement écrit exprès. Les licences tierces et les droits déjà accordés restent inchangés. [licence](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/LICENSE) · [autorisation d’évaluation (en anglais)](https://github.com/RDunbar01/Nexus-Benchmark-Token-Studio/blob/main/COMMERCIAL_EVALUATION_PERMISSION.md).
